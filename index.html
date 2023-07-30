@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Special Moments for [Her Name]</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <img src="https://img.freepik.com/free-vector/happy-birthday-flags-confetti-card_1017-32699.jpg?size=626&ext=jpg&ga=GA1.1.1290075639.1687553049&semt=ais" width="40%">
+    <div>
+      <h1 class="ff">Special Moments for <span class="talile">TALIILEE</span></h1>
+      <img src="images/photo1689960925.jpeg" width="90%">
+    </div>
+  </header>
+
+  <main>
+    
+    <section>
+      <h2>Favorite Playlist</h2>
+      <div class="ent">
+        <div>
+          <iframe width="100%" height="500" src="https://www.youtube.com/embed/n3qw7lZzbkM?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <div>
+          <img src="images/card.jpg" width="100%">
+        </div>
+      </div>
+    </section>
+    <section>
+      <h2>Memories</h2>
+      <div class="mem">
+        <div>
+          <div>
+            <img src="images/photo1689960925 (2).jpeg" alt="Memory 1">
+          </div>
+          <div>
+            <img src="images/photo1689960925 (3).jpeg" alt="Memory 2">
+          </div>
+        </div>
+        <div>
+          <div>
+            <img src="images/photo1689960925.jpeg">
+          </div>
+          <div>
+            <img src="images/avatar5361091872.jpg">
+          </div>
+        </div>
+        <div>
+          <div>
+            <img src="images/photo1689960925 (1).jpeg" alt="Memory 2">
+          </div>
+          <div>
+            <img src="images/l.jpeg">
+          </div>
+        </div>
+        
+        
+        
+        <!-- Add more images -->
+      </div>
+    </section>
+
+    
+
+    <div>
+      <section class="he">
+        <h2>Birth Day Wishes!</h2>
+        <p class="pink">
+          Dalachuunkee baayyee tokko na gammachiiseera Umurii Harraagessaan siif hawwa bara quufii jiraadhu!
+        </p>
+      </section>
+    </div>
+    <div>
+
+    </div>
+    <section class="bbb">
+      <h2>Guestbook</h2>
+      <div id="guestbook">
+        <form id="guestbookForm">
+          <input class="inp" type="text" id="nameInput" placeholder="Your Name" required>
+          <textarea class="tex" id="messageInput" placeholder="Your wish?" required class="pink"></textarea>
+          <button class="sub" type="submit">Submit</button>
+        </form>
+        <div id="guestbookEntries"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Created By S!</p>
+  </footer>
+  
+  <!-- Add JavaScript code here -->
+  <script>
+
+    // Function to save guestbook entries to local storage
+function saveGuestbookEntry(name, message) {
+  var entries = JSON.parse(localStorage.getItem('guestbookEntries')) || [];
+
+  var entry = {
+    name: name,
+    message: message
+  };
+
+  entries.push(entry);
+  localStorage.setItem('guestbookEntries', JSON.stringify(entries));
+}
+
+// Function to load guestbook entries from local storage
+function loadGuestbookEntries() {
+  var entries = JSON.parse(localStorage.getItem('guestbookEntries')) || [];
+
+  var guestbookEntries = document.getElementById('guestbookEntries');
+  guestbookEntries.innerHTML = '';
+
+  for (var i = 0; i < entries.length; i++) {
+    var entry = entries[i];
+    var entryElement = document.createElement('div');
+    entryElement.classList.add('guestbook-entry');
+    entryElement.innerHTML = '<h4>' + entry.name + '</h4><p>' + entry.message + '</p>';
+    guestbookEntries.appendChild(entryElement);
+  }
+}
+
+// Add event listener to the form submission
+var guestbookForm = document.getElementById('guestbookForm');
+guestbookForm.addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  var nameInput = document.getElementById('nameInput');
+  var messageInput = document.getElementById('messageInput');
+
+  var name = nameInput.value;
+  var message = messageInput.value;
+
+  // Save the entry to local storage
+  saveGuestbookEntry(name, message);
+
+  // Load guestbook entries from local storage
+  loadGuestbookEntries();
+
+  // Clear the form inputs
+  nameInput.value = '';
+  messageInput.value = '';
+});
+
+// Load guestbook entries on page load
+window.addEventListener('load', function() {
+  loadGuestbookEntries();
+});
+
+
+    var guestbookForm = document.getElementById('guestbookForm');
+    var guestbookEntries = document.getElementById('guestbookEntries');
+
+    guestbookForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      var nameInput = document.getElementById('nameInput');
+      var messageInput = document.getElementById('messageInput');
+
+      var name = nameInput.value;
+      var message = messageInput.value;
+
+      // Create a new entry element
+      var entry = document.createElement('div');
+      entry.classList.add('guestbook-entry');
+      entry.innerHTML = '<h4>' + name + '</h4><p>' + message + '</p>';
+      entry.style.color = 'pink';
+
+      // Append the entry to the guestbookEntries div
+      guestbookEntries.appendChild(entry);
+
+      // Clear the form inputs
+      nameInput.value = '';
+      messageInput.value = '';
+    });
+
+    var events = document.querySelectorAll('.event');
+
+    events.forEach(function(event) {
+      event.addEventListener('click', function() {
+        event.classList.toggle('expanded');
+      });
+    });
+  </script>
+</body>
+</html>
