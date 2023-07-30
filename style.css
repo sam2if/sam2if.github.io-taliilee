@@ -99,17 +99,6 @@ body {
     margin-bottom: 5px;
   }
   
-  #quiz ul li.correct {
-    color: green;
-  }
-  
-  #quiz ul li.wrong {
-    color: red;
-  }
-  
-  #quizResult {
-    margin-top: 10px;
-  }
   
   /* Interactive Timeline section */
   #timeline .event {
